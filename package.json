@@ -1,0 +1,37 @@
+{
+  "name": "highcharts",
+  "description": "Highcharts Server",
+  "version": "0.0.2",
+  "contributors": [
+    {
+      "name": "Ashley Brener",
+      "url": "http://frisB.com"
+    }
+  ],
+  "main": "Gruntfile.coffee",
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-coffee": "^0.10.1"
+  },
+  "dependencies": {
+    "phantomjs": "^1.9.7-15",
+    "underscore": "^1.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/frisb/highcharts/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frisb/highcharts"
+  },
+  "keywords": [
+    "highcharts",
+    "charts",
+    "graphs"
+  ]
+}
