@@ -1,7 +1,4 @@
-# grunt-manifest [![Build Status](https://travis-ci.org/frisb/highcharts.png)](http://travis-ci.org/frisb/highcharts)
-
-highcharts
-===
+# highcharts [![Build Status](https://travis-ci.org/frisb/highcharts.png)](http://travis-ci.org/frisb/highcharts)
 
 [![npm status badge](https://nodei.co/npm/highcharts.png?stars=true&downloads=true)](https://nodei.co/npm/highcharts/)
 
@@ -13,7 +10,7 @@ contributions are welcome.
 
 * `simple api` - Simplifies existing useage.
 
-## useage
+## usage
 
 ``` js
 var Highcharts = require('highcharts');
