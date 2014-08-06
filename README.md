@@ -1,31 +1,29 @@
-# highcharts [![Build Status](https://travis-ci.org/frisb/highcharts.png)](http://travis-ci.org/frisb/highcharts)
+# Highcharts [![Build Status](https://travis-ci.org/frisb/highcharts.png)](http://travis-ci.org/frisb/highcharts)
 
 [![npm status badge](https://nodei.co/npm/highcharts.png?stars=true&downloads=true)](https://nodei.co/npm/highcharts/)
 
-highcharts for node.js wraps the highcharts-convert module in a simple to use web server which is run locally.
+Highcharts for node.js is a WebServer module that runs on localhost and renders typical Highcharts graphs into base64 PNG strings.
 
-contributions are welcome.
+All contributions are welcome.
 
-## features
+## Simple API
 
-* `simple api` - Simplifies existing useage.
-
-## Class: Highcharts
+### Class: Highcharts
 
 Highcharts has the following methods.
 
-### new Highcharts(port)
+#### new Highcharts(port)
 
 * `port` Number. Port to bind webserver to localhost.
 
 Constructor for creating a Highcharts web server instance.
 
-### render(options, callback)
+#### render(options, callback)
 
 * `options` Object. General Highcharts options.
 * `callback` Function. The callback has argument `(base64png)`, a base64 PNG data string.
 
-## usage
+## Example Usage
 
 ``` js
 var Highcharts = require('highcharts');
@@ -85,7 +83,7 @@ var options = {
 server.render({ width: 640, scale: 2 }, options, callback)
 ```
 
-## installation
+## Installation
 
 ```
 npm install highcharts
