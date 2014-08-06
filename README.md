@@ -10,6 +10,21 @@ contributions are welcome.
 
 * `simple api` - Simplifies existing useage.
 
+## Class: Highcharts
+
+Highcharts has the following methods.
+
+### new Highcharts(port)
+
+* `port` Number. Port to bind webserver to localhost.
+
+Constructor for creating a Highcharts web server instance.
+
+### render(options, callback)
+
+* `options` Object. General Highcharts options.
+* `callback` Function. The callback has argument `(base64png)`, a base64 PNG data string.
+
 ## usage
 
 ``` js
@@ -73,7 +88,7 @@ server.render({ width: 640, scale: 2 }, options, callback)
 ## installation
 
 ```
-	npm install highcharts
+npm install highcharts
 ```
 
 ## License
@@ -100,3 +115,5 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[![Analytics](https://ga-beacon.appspot.com/UA-40562957-3/highcharts/readme)](https://github.com/igrigorik/ga-beacon)
