@@ -80,7 +80,10 @@ var options = {
 	]
 };
 
-server.render({ width: 640, scale: 2 }, options, callback)
+server.render({ width: 640, scale: 2 }, options, function (base64png) {
+	// returns HTML5 img tag with data uri
+	return '<img src="data:image/png;base64,' + base64 + '" alt="Monthly Average Temperature" />';
+});
 ```
 
 ## Installation
