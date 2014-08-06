@@ -5,7 +5,7 @@ path = require('path')
 phantomjs = require('phantomjs')
 
 binPath = phantomjs.path
-highchartsjs = path.join(__dirname, 'scripts/highcharts-convert.js')
+highchartsjs = path.join(__dirname, '../scripts/highcharts-convert.js')
 
 module.exports = class HighchartsServer
   constructor: (@port) ->

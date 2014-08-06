@@ -18,9 +18,10 @@ Highcharts has the following methods.
 
 Constructor for creating a Highcharts web server instance.
 
-#### render(options, callback)
+#### render(imgOptions, chartOptions, callback)
 
-* `options` Object. General Highcharts options.
+* `imgOptions` Object. Rendered image options.
+* `chartOptions` Object. General Highcharts options.
 * `callback` Function. The callback has argument `(base64png)`, a base64 PNG data string.
 
 ## Example Usage
@@ -29,7 +30,7 @@ Constructor for creating a Highcharts web server instance.
 var Highcharts = require('highcharts');
 var server = new Highcharts(3003);
 
-var options = {
+var chartOptions = {
   title: {
     text: 'Monthly Average Temperature',
     x: -20 //center
@@ -80,10 +81,17 @@ var options = {
 	]
 };
 
-server.render({ width: 640, scale: 2 }, options, function (base64png) {
+var imgOptions = {
+	width: 640,
+	scale: 2
+};
+
+function generateImgTag(base64png) {
 	// returns HTML5 img tag with data uri
 	return '<img src="data:image/png;base64,' + base64png + '" alt="Monthly Average Temperature" />';
-});
+}
+
+server.render(imgOptions, chartOptions, generateImgTag);
 ```
 
 ## Installation
