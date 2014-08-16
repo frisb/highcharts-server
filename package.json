@@ -1,14 +1,14 @@
 {
   "name": "highcharts",
   "description": "Highcharts Server",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "contributors": [
     {
       "name": "Ashley Brener",
       "url": "http://frisB.com"
     }
   ],
-  "main": "lib/index",
+  "main": "lib/",
   "engines": {
     "node": ">= 0.10.x"
   },
@@ -18,6 +18,7 @@
     "grunt-contrib-coffee": "^0.10.1"
   },
   "dependencies": {
+    "grunt-contrib-coffee": "^0.10.1",
     "phantomjs": "^1.9.7-15",
     "underscore": "^1.6.0"
   },
