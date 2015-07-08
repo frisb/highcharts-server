@@ -5,7 +5,7 @@ module.exports = (grunt) ->
     clean:
       default:
         src: ['lib']
-        
+
     coffee:
       compile:
         options:
