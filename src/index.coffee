@@ -62,7 +62,7 @@ module.exports = class HighchartsServer
 
       res.on 'readable', ->
         chunk = res.read()
-        data += chunk.toString('utf8')
+        if chunk then (data += chunk.toString('utf8')) else data
 
       res.on 'end', ->
         try
