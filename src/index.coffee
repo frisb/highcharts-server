@@ -1,4 +1,4 @@
-_ = require('underscore')
+_ = require('lodash')
 child_process = require('child_process')
 http = require('http')
 path = require('path')
@@ -44,16 +44,16 @@ module.exports = class HighchartsServer
     defaults =
       infile: JSON.stringify(obj.chartOptions)
       constr: 'Chart'
-      # callback: 'function (chart) { console.log(chart); }'
+    # callback: 'function (chart) { console.log(chart); }'
 
     postdata = JSON.stringify(_.extend(defaults, obj.renderOptions))
 
     options =
-  		host: '127.0.0.1'
-  		port: @port
-  		path: '/'
-  		method: 'POST'
-  		headers:
+      host: '127.0.0.1'
+      port: @port
+      path: '/'
+      method: 'POST'
+      headers:
         'Content-Type': 'application/json'
         'Content-Length': postdata.length
 
