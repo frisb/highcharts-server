@@ -55,7 +55,7 @@ module.exports = class HighchartsServer
       method: 'POST'
       headers:
         'Content-Type': 'application/json'
-        'Content-Length': postdata.length
+        'Content-Length': Buffer.byteLength(postdata, 'utf8')
 
     reqCallback = (res) ->
       data = ''
