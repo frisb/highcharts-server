@@ -44,7 +44,7 @@ var chartOptions = {
   },
   yAxis: {
     title: {
-      text: 'Temperature (°C)'
+      text: 'Temperature (C)'
     },
     plotLines: [{
       value: 0,
@@ -53,7 +53,7 @@ var chartOptions = {
     }]
   },
   tooltip: {
-    valueSuffix: '°C'
+    valueSuffix: 'C'
   },
   legend: {
     layout: 'vertical',
