@@ -1,7 +1,7 @@
 {
   "name": "highcharts-server",
   "description": "Highcharts export server for node.js",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "contributors": [
     {
       "name": "Ashley Brener",
