@@ -1,6 +1,8 @@
-# Highcharts [![Build Status](https://travis-ci.org/frisb/highcharts.png)](http://travis-ci.org/frisb/highcharts)
-
-[![npm status badge](https://nodei.co/npm/highcharts.png?stars=true&downloads=true)](https://nodei.co/npm/highcharts/)
+# Highcharts
+[![Build Status](https://travis-ci.org/frisb/highcharts-server.png)](http://travis-ci.org/frisb/highcharts-server)
+[![Dependency Status](https://gemnasium.com/frisb/highcharts-server.svg)](https://gemnasium.com/frisb/highcharts-server)
+[![Code Climate](https://codeclimate.com/github/frisb/highcharts-server/badges/gpa.svg)](https://codeclimate.com/github/frisb/highcharts-server)
+[![npm version](https://badge.fury.io/js/highcharts-server.svg)](http://badge.fury.io/js/highcharts-server)
 
 Highcharts for node.js is a WebServer module that runs on localhost and renders typical Highcharts graphs into base64 PNG strings.
 
@@ -27,7 +29,7 @@ Constructor for creating a Highcharts web server instance.
 ## Example Usage
 
 ``` js
-var Highcharts = require('highcharts');
+var Highcharts = require('highcharts-server');
 var server = new Highcharts(3003);
 
 var chartOptions = {
@@ -97,7 +99,7 @@ server.render(imgOptions, chartOptions, generateImgTag);
 ## Installation
 
 ```
-npm install highcharts
+npm install highcharts-server
 ```
 
 ## License
@@ -125,4 +127,4 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts/readme)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts-server/readme)](https://github.com/igrigorik/ga-beacon)

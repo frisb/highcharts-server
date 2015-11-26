@@ -1,7 +1,7 @@
 {
-  "name": "highcharts",
+  "name": "highcharts-server",
   "description": "Highcharts Server",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "contributors": [
     {
       "name": "Ashley Brener",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/frisb/highcharts"
+    "url": "https://github.com/frisb/highcharts-server"
   },
   "bugs": {
-    "url": "https://github.com/frisb/highcharts/issues"
+    "url": "https://github.com/frisb/highcharts-server/issues"
   },
   "license": "MIT",
   "keywords": [
