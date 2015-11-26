@@ -1,4 +1,4 @@
-# Highcharts
+# highcharts-server
 [![Build Status](https://travis-ci.org/frisb/highcharts-server.png)](http://travis-ci.org/frisb/highcharts-server)
 [![Dependency Status](https://gemnasium.com/frisb/highcharts-server.svg)](https://gemnasium.com/frisb/highcharts-server)
 [![Code Climate](https://codeclimate.com/github/frisb/highcharts-server/badges/gpa.svg)](https://codeclimate.com/github/frisb/highcharts-server)
