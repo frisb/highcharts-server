@@ -1,19 +1,24 @@
 import path from 'path';
-import http from 'http';
+import request from 'request';
+import events from 'events';
 import child_process from 'child_process';
 import _ from 'lodash';
 import phantomjs from 'phantomjs-prebuilt';
 const highchartsjs = path.join(__dirname, '../scripts/highcharts-convert.js');
 const binPath = phantomjs.path;
 
-class HighchartsServer {
-    constructor(port) {
+class HighchartsServer extends events.EventEmitter {
+    constructor(port = 3001, phantomjsTimeout = 60000, sleepTime = 300000) {
+        super();
         this.port = port;
         this.args = [highchartsjs, '-host', '127.0.0.1', '-port', port];
         this.ready = true;
         this.phantomProcess = null;
         this.starting = false;
+        this.phantomjsTimeout = phantomjsTimeout;
+        this.sleepTime = sleepTime;
         this.queue = [];
+        this.processing = 0;
 
         process.on('exit', () => {
             // cleanup highcharts process
@@ -30,16 +35,27 @@ class HighchartsServer {
         setTimeout(() => {
             this.ready = true;
             this.starting = false;
+            this.emit('started');
+            this.resetSleepTimer();
             while (this.queue.length > 0) {
                 this.serve(this.queue.shift());
             }
-        }, 10000);
+        }, 4000);
     }
 
-    stop() {
+    stop(clearQueue) {
         if (this.phantomProcess) {
-            this.phantomProcess.kill('SIGQUIT');
+            this.phantomProcess.kill('SIGKILL');
             this.phantomProcess = null;
+            if (clearQueue) {
+                this.queue = [];
+            }
+            this.processing = 0;
+            setTimeout(() => {
+                this.emit('stopped');
+            }, 2000);
+        } else {
+            this.emit('stopped');
         }
     }
 
@@ -49,37 +65,69 @@ class HighchartsServer {
             constr: 'Chart'
         };
         const postdata = JSON.stringify(_.extend(defaults, obj.renderOptions));
-        const options = {
-            host: '127.0.0.1',
-            port: 3003,
-            path: '/',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': Buffer.byteLength(postdata, 'utf8')
-            }
-        };
         if (!this.ready) {
             this.queue.push(obj);
             return;
+        } else {
+            this.processing++;
         }
-        const req = http.request(options, this.handleRenderComplete.bind(this, obj));
-        req.on('error', (err) => {
 
-            if (err.code === 'ECONNREFUSED') {
-              // no server running currently, start one
-                this.ready = false;
+        request.post(`http://localhost:${this.port}/`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(postdata, 'utf8')
+            },
+            body: postdata,
+            timeout: this.phantomjsTimeout
+        }, (err, r, body) => {
+            if (err) {
+                this.processing--;
                 this.queue.push(obj);
-                if (!this.starting) {
-                    this.start();
+                if (err.code === 'ECONNREFUSED') {
+                  // no server running currently, start one
+                    this.ready = false;
+                    if (!this.starting) {
+                        this.start();
+                    }
+                } else if (err.code === 'ETIMEDOUT' || err.code === 'ESOCKETTIMEDOUT') {
+                    // phantomjs occasionally goes into a zombie state where
+                    // it's still running and will accept a connection/request
+                    // but never responds to the request
+                    this.emit('timeout');
+                    this.once('stopped', () => {
+                        this.start();
+                    });
+                    this.stop();
+                } else {
+                    console.error(err);
                 }
+                return;
             } else {
-                console.error(err, options);
+                obj.callback(body);
+                this.processing--;
+                this.resetSleepTimer();
             }
         });
+    }
 
-        req.write(postdata);
-        req.end();
+    stopSleepTimer() {
+        if (this.sleepTime && this.sleepTimer) {
+            clearTimeout(this.sleepTimer);
+        }
+    }
+
+    resetSleepTimer() {
+        this.stopSleepTimer();
+        this.sleepTimer = setTimeout(() => {
+            if (this.queue.length === 0 && this.processing === 0) {
+                // if there is nothing in the queue and nothing
+                // currently processing, stop phantomjs
+                this.stop();
+            } else {
+                // otherwise wait and check again (default 5 minutes)
+                this.resetSleepTimer();
+            }
+        }, this.sleepTime);
     }
 
     render(renderOptions, chartOptions, callback) {
@@ -94,25 +142,6 @@ class HighchartsServer {
         } else {
             this.queue.push(obj);
         }
-    }
-
-    handleRenderComplete(obj, res) {
-        let data = '';
-
-        res.on('readable', () => {
-            const chunk = res.read();
-            if (!_.isNull(chunk)) {
-                data += chunk.toString('utf8');
-            }
-        });
-
-        res.on('end', () => {
-            try {
-                obj.callback(data);
-            } catch (err) {
-                console.error(err, err.stack);
-            }
-        });
     }
 }
 export default HighchartsServer;

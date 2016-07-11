@@ -12,9 +12,14 @@ All contributions are welcome.
 
 Highcharts has the following methods.
 
-#### new Highcharts(port)
+#### new Highcharts(port, phantomjsTimeout, sleepTime) {
 
 * `port` Number. Port to bind webserver to localhost.
+* `phantomjsTimeout` Number of milliseconds to wait for phantomjs to return a rendered chart.
+* `sleepTime` If this number of milliseconds has passed since the last chart was rendered, and
+there are no charts in the queue and none processing, stop phantomjs (it will automatically
+restart the nest time a render is requested).
+
 
 Constructor for creating a Highcharts web server instance.
 
@@ -124,5 +129,3 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts-server/readme)](https://github.com/igrigorik/ga-beacon)
