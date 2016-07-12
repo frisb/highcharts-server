@@ -1,7 +1,5 @@
 # highcharts-server
 
-Forked from [frisb/highcharts-server](https://github.com/frisb/highcharts-server).
-
 Highcharts for node.js is a WebServer module that runs on localhost and renders typical Highcharts graphs into base64 PNG strings.
 
 All contributions are welcome.
@@ -129,3 +127,5 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts-server/readme)](https://github.com/igrigorik/ga-beacon) 

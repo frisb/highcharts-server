@@ -1,0 +1,13 @@
+---
+engines:
+  eslint:
+    enabled: true
+    channel: "eslint-2"
+    config:
+        config: .eslintrc.js
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.js"
+exclude_paths: []

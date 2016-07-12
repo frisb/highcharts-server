@@ -46,14 +46,14 @@ describe('highcharts-server', () => {
         server.stop();
     }, 20000);
 
-    it('generates a chart that matches the original with < 0.1% difference', (done) => {
+    it('generates a chart that matches the original with < 9% difference', (done) => {
         server.render(imgOptions, chartOptions, (base64png) => {
             const generatedChart = new Buffer(base64png, 'base64');
 
             const originalChart = fs.readFileSync(path.join(__dirname, 'support/original.png'));
             resemble(generatedChart).compareTo(originalChart).onComplete(function(data) {
                 data.getDiffImage().pack().pipe(fs.createWriteStream(path.join(__dirname, 'support/diff.png')));
-                expect(Number(data.misMatchPercentage)).toBeLessThan(0.1);
+                expect(Number(data.misMatchPercentage)).toBeLessThan(9);
                 done();
             });
         });
