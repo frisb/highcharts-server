@@ -1,8 +1,4 @@
 # highcharts-server
-[![Build Status](https://travis-ci.org/frisb/highcharts-server.png)](http://travis-ci.org/frisb/highcharts-server)
-[![Dependency Status](https://gemnasium.com/frisb/highcharts-server.svg)](https://gemnasium.com/frisb/highcharts-server)
-[![Code Climate](https://codeclimate.com/github/frisb/highcharts-server/badges/gpa.svg)](https://codeclimate.com/github/frisb/highcharts-server)
-[![npm version](https://badge.fury.io/js/highcharts-server.svg)](http://badge.fury.io/js/highcharts-server)
 
 Highcharts for node.js is a WebServer module that runs on localhost and renders typical Highcharts graphs into base64 PNG strings.
 
@@ -14,9 +10,14 @@ All contributions are welcome.
 
 Highcharts has the following methods.
 
-#### new Highcharts(port)
+#### new Highcharts(port, phantomjsTimeout, sleepTime) {
 
 * `port` Number. Port to bind webserver to localhost.
+* `phantomjsTimeout` Number of milliseconds to wait for phantomjs to return a rendered chart.
+* `sleepTime` If this number of milliseconds has passed since the last chart was rendered, and
+there are no charts in the queue and none processing, stop phantomjs (it will automatically
+restart the nest time a render is requested).
+
 
 Constructor for creating a Highcharts web server instance.
 
@@ -127,4 +128,4 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts-server/readme)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-40562957-4/highcharts-server/readme)](https://github.com/igrigorik/ga-beacon) 
