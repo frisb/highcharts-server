@@ -1,7 +1,7 @@
 {
   "name": "highcharts-server",
   "description": "Highcharts export server for node.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "contributors": [
     {
       "name": "Gord Lea",
@@ -25,17 +25,17 @@
     "node": ">= 0.10.x"
   },
   "devDependencies": {
-    "babel-cli": "^6.9.0",
+    "babel-cli": "^6.11.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
-    "babel-register": "^6.9.0",
-    "eslint": "^2.12.0",
+    "babel-register": "^6.11.5",
+    "eslint": "^3.1.1",
     "find-process": "^1.0.4",
     "jasmine": "^2.4.1",
     "node-resemble-js": "0.0.5"
   },
   "dependencies": {
-    "lodash": "^4.13.1",
+    "lodash": "^4.14.0",
     "phantomjs-prebuilt": "^2.1.7",
     "request": "^2.73.0"
   },

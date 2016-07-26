@@ -1,7 +1,6 @@
 # highcharts-server
 [![Build Status](https://travis-ci.org/frisb/highcharts-server.png)](http://travis-ci.org/frisb/highcharts-server)
 [![Dependency Status](https://gemnasium.com/frisb/highcharts-server.svg)](https://gemnasium.com/frisb/highcharts-server)
-[![Code Climate](https://codeclimate.com/github/frisb/highcharts-server/badges/gpa.svg)](https://codeclimate.com/github/frisb/highcharts-server)
 [![npm version](https://badge.fury.io/js/highcharts-server.svg)](http://badge.fury.io/js/highcharts-server)
 
 Highcharts for node.js is a WebServer module that runs on localhost and renders typical Highcharts graphs into base64 PNG strings.
