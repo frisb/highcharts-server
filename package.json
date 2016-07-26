@@ -1,7 +1,7 @@
 {
   "name": "highcharts-server",
   "description": "Highcharts export server for node.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "contributors": [
     {
       "name": "Gord Lea",
@@ -41,13 +41,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/opendns/highcharts-server"
+    "url": "https://github.com/frisb/highcharts-server"
   },
   "bugs": {
-    "url": "https://github.com/opendns/highcharts-server/issues"
+    "url": "https://github.com/frisb/highcharts-server/issues"
   },
   "license": "MIT",
   "keywords": [
+    "highcharts-server",
     "highcharts",
     "charts",
     "graphs"
